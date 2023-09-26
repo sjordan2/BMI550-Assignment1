@@ -172,7 +172,7 @@ except (IndexError, FileNotFoundError):
           "UnlabeledSet.xlsx`")
     sys.exit(1)
 
-reddit_posts_df = reddit_posts_df.dropna()
+reddit_posts_df = reddit_posts_df[reddit_posts_df['TEXT'].notna()]
 num_posts = len(reddit_posts_df.index)
 final_annotation_df = pd.DataFrame(columns=["ID", "Symptom Expression", "Symptom CUIs", "Negation Flag"])
 
